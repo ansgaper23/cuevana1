@@ -1,0 +1,105 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%; /* Dark Blue */
+    --foreground: 210 40% 98%; /* Almost White */
+
+    --card: 222 47% 14%; /* Slightly Lighter Dark Blue for Cards */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 9%; /* Darker Blue for Popovers */
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 256 67% 52%; /* Vibrant Purple/Blue from image */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222 47% 20%; /* Medium Dark Blue */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 47% 18%; /* Muted Dark Blue */
+    --muted-foreground: 210 40% 70%; /* Lighter Gray for Muted Text */
+
+    --accent: 256 67% 60%; /* Lighter Purple/Blue for Accents */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 50%; /* Red for Destructive Actions */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 47% 25%; /* Border Color */
+    --input: 222 47% 25%; /* Input Border */
+    --ring: 256 67% 55%; /* Ring Color (Focus) */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Same as :root for this theme as it's already dark */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 256 67% 52%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 222 47% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 47% 18%;
+    --muted-foreground: 210 40% 70%;
+    --accent: 256 67% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 47% 25%;
+    --input: 222 47% 25%;
+    --ring: 256 67% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/70 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+.movie-card-year-badge {
+  @apply absolute top-2 right-2 bg-black/70 text-xs text-white px-2 py-1 rounded font-semibold;
+}
+
+.movie-card-play-icon {
+  @apply absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+}
+
+.section-title-underline {
+  @apply relative pb-2 mb-1;
+}
+
+.section-title-underline::after {
+  content: '';
+  @apply absolute bottom-0 left-0 h-1 w-12 bg-primary rounded-full;
+}
+
+.filter-tab-active {
+ @apply bg-primary text-primary-foreground;
+}
